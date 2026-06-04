@@ -373,36 +373,78 @@ footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:28px 56px;disp
 <div class="divider"></div>
 
 <!-- PRICING -->
+<style>
+.plans-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px}
+.plan-b2b{background:var(--navy);border:1.5px solid var(--navy);border-radius:18px;padding:34px;position:relative;box-shadow:var(--shadow-lg)}
+.plan-b2b .plan-name{color:rgba(255,255,255,0.5)}
+.plan-b2b .plan-price{color:#fff}
+.plan-b2b .plan-feature{color:rgba(255,255,255,0.85)}
+.plan-b2b .plan-feature::before{color:var(--mint)}
+.plan-b2b .plan-sep{background:rgba(255,255,255,0.1)}
+</style>
 <section class="section" id="pricing">
   <div class="sec-label">Tarifs</div>
-  <h2>Simple et <em>transparent</em></h2>
-  <p class="sec-sub">Commence gratuitement. Passe au Premium quand tu veux aller plus loin.</p>
-  <div class="plans fade-up">
+  <h2>Un modèle pour <em>chaque besoin</em></h2>
+  <p class="sec-sub">Freemium, Premium, Pro et B2B — CVAI s'adapte aux candidats comme aux recruteurs.</p>
+  <div class="plans-4 fade-up">
+
+    <!-- Gratuit -->
     <div class="plan">
       <div class="plan-name">Gratuit</div>
       <div class="plan-price">0 <span>CHF / mois</span></div>
       <div class="plan-sep"></div>
-      <div class="plan-feature">1 analyse CV par mois</div>
-      <div class="plan-feature">Score ATS basique</div>
-      <div class="plan-feature">3 offres matchées / mois</div>
-      <div class="plan-feature off">Mise en relation recruteurs</div>
-      <div class="plan-feature off">Génération lettre de motivation</div>
-      <div class="plan-feature off">Suivi Kanban candidatures</div>
+      <div class="plan-feature">Diagnostic limité</div>
+      <div class="plan-feature">Aperçu du score ATS</div>
+      <div class="plan-feature">Quelques recommandations</div>
+      <div class="plan-feature off">Mots clés manquants</div>
+      <div class="plan-feature off">Export CV optimisé</div>
+      <div class="plan-feature off">Mise en relation</div>
       <button class="plan-btn ghost">Commencer</button>
     </div>
+
+    <!-- Premium candidat -->
     <div class="plan featured">
-      <div class="plan-badge">⭐ Recommandé</div>
-      <div class="plan-name">Premium</div>
-      <div class="plan-price">9,90 <span>CHF / mois</span></div>
+      <div class="plan-badge">⭐ Populaire</div>
+      <div class="plan-name">Premium candidat</div>
+      <div class="plan-price">29 <span>CHF / mois</span></div>
       <div class="plan-sep"></div>
-      <div class="plan-feature">Analyses CV illimitées</div>
-      <div class="plan-feature">Score ATS détaillé + recommandations</div>
+      <div class="plan-feature">Analyse complète du CV</div>
+      <div class="plan-feature">Mots clés manquants</div>
+      <div class="plan-feature">Export CV optimisé</div>
+      <div class="plan-feature">Lettre de motivation IA</div>
       <div class="plan-feature">Matching offres illimité</div>
-      <div class="plan-feature">Mise en relation recruteurs data</div>
-      <div class="plan-feature">Lettre de motivation en 1 clic</div>
-      <div class="plan-feature">Suivi Kanban + analytics</div>
-      <button class="plan-btn solid">Essayer Premium</button>
+      <div class="plan-feature off">Coaching renforcé</div>
+      <button class="plan-btn solid">Essayer</button>
     </div>
+
+    <!-- Pack Pro -->
+    <div class="plan">
+      <div class="plan-name">Pack Pro</div>
+      <div class="plan-price">49 <span>CHF / mois</span></div>
+      <div class="plan-sep"></div>
+      <div class="plan-feature">Tout le Premium</div>
+      <div class="plan-feature">Optimisation avancée</div>
+      <div class="plan-feature">Coaching ou guide renforcé</div>
+      <div class="plan-feature">Mise en relation recruteurs</div>
+      <div class="plan-feature">Suivi Kanban + analytics</div>
+      <div class="plan-feature">Support prioritaire</div>
+      <button class="plan-btn ghost">Choisir Pro</button>
+    </div>
+
+    <!-- B2B -->
+    <div class="plan plan-b2b">
+      <div class="plan-name">B2B</div>
+      <div class="plan-price" style="font-size:32px;margin-top:8px">Sur devis</div>
+      <div class="plan-sep"></div>
+      <div class="plan-feature">Licences campus</div>
+      <div class="plan-feature">Partenariats RH</div>
+      <div class="plan-feature">Campagnes recrutement</div>
+      <div class="plan-feature">Revenus récurrents</div>
+      <div class="plan-feature">Tableau de bord RH dédié</div>
+      <div class="plan-feature">Intégration ATS entreprise</div>
+      <button class="plan-btn" style="background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);margin-top:22px;width:100%;padding:14px;border-radius:10px;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif">Nous contacter</button>
+    </div>
+
   </div>
 </section>
 
