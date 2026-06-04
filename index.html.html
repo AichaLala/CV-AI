@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVAI — Optimise ton CV pour décrocher ton job data</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F8FAFF;
+  --bg2:#EEF3FF;
+  --white:#FFFFFF;
+  --card:#FFFFFF;
+  --card2:#F0F5FF;
+  --navy:#0F1F4B;
+  --blue:#2563EB;
+  --elec:#3B82F6;
+  --sky:#60A5FA;
+  --mint:#059669;
+  --amber:#D97706;
+  --text:#1E293B;
+  --muted:#64748B;
+  --light:#94A3B8;
+  --bdr:rgba(37,99,235,0.1);
+  --bdr2:rgba(37,99,235,0.22);
+  --grad:linear-gradient(135deg,#2563EB 0%,#1D4ED8 100%);
+  --grad2:linear-gradient(135deg,#3B82F6 0%,#06B6D4 100%);
+  --shadow:0 2px 16px rgba(15,31,75,0.08);
+  --shadow-lg:0 8px 40px rgba(15,31,75,0.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:64px;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr);box-shadow:0 1px 8px rgba(15,31,75,0.06)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;background:var(--grad);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;letter-spacing:-1px}
+.logo-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--navy)}
+.logo-name span{color:var(--blue)}
+nav ul{list-style:none;display:flex;gap:32px}
+nav a{color:var(--muted);font-size:14px;text-decoration:none;font-weight:400;transition:color .2s}
+nav a:hover{color:var(--navy)}
+.nav-cta{background:var(--grad);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s;box-shadow:0 2px 12px rgba(37,99,235,0.25)}
+.nav-cta:hover{opacity:.88}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 56px 60px;gap:64px;background:linear-gradient(160deg,#F0F5FF 0%,#FFFFFF 60%)}
+.hero-content{}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--bdr2);background:rgba(37,99,235,0.07);border-radius:99px;padding:6px 16px;margin-bottom:28px}
+.badge-dot{width:7px;height:7px;background:var(--mint);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+.badge span{font-size:12px;font-weight:500;color:var(--blue);letter-spacing:.3px}
+h1{font-family:'Syne',sans-serif;font-size:clamp(34px,4vw,56px);font-weight:800;line-height:1.08;letter-spacing:-2px;margin-bottom:20px;color:var(--navy)}
+h1 em{font-style:normal;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:17px;color:var(--muted);line-height:1.7;margin-bottom:36px;font-weight:300;max-width:480px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.btn-primary{background:var(--grad);color:#fff;border:none;padding:14px 26px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;transition:transform .15s,opacity .2s;box-shadow:0 4px 16px rgba(37,99,235,0.3)}
+.btn-primary:hover{transform:translateY(-2px);opacity:.92}
+.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--bdr2);padding:14px 26px;border-radius:10px;font-size:14px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;font-weight:500}
+.btn-ghost:hover{background:var(--bg2)}
+.hero-note{font-size:12px;color:var(--light)}
+.hero-note strong{color:var(--muted)}
+.hero-img{position:relative}
+.hero-img img{width:100%;border-radius:20px;box-shadow:var(--shadow-lg);object-fit:cover;height:460px}
+.hero-img-badge{position:absolute;bottom:24px;left:24px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:12px}
+.hib-icon{width:40px;height:40px;background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.hib-text .t{font-size:14px;font-weight:700;color:var(--navy)}
+.hib-text .s{font-size:11px;color:var(--muted)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--bdr);margin:0 56px}
+
+/* SECTIONS */
+.section{padding:90px 56px;max-width:1100px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:2px;text-align:center;margin-bottom:12px}
+h2{font-family:'Syne',sans-serif;font-size:clamp(26px,3.5vw,40px);font-weight:800;text-align:center;letter-spacing:-1.5px;margin-bottom:14px;color:var(--navy);line-height:1.1}
+h2 em{font-style:normal;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sec-sub{font-size:15px;color:var(--muted);text-align:center;max-width:500px;margin:0 auto 52px;line-height:1.7;font-weight:300}
+
+/* STATS MARCHÉ */
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.market-card{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:30px 26px;position:relative;overflow:hidden;box-shadow:var(--shadow)}
+.market-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad2)}
+.market-num{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;letter-spacing:-2px;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.market-label{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.market-desc{font-size:12.5px;color:var(--muted);line-height:1.6;margin-bottom:12px}
+.market-src{font-size:10px;color:var(--light);font-style:italic}
+
+/* FEATURES */
+.feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{background:#fff;border:1px solid var(--bdr);border-radius:16px;padding:26px;transition:border-color .2s,transform .2s,box-shadow .2s;box-shadow:var(--shadow)}
+.feat:hover{border-color:var(--bdr2);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.feat-ico{width:46px;height:46px;border-radius:12px;background:var(--bg2);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px}
+.feat-t{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px;color:var(--navy)}
+.feat-d{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* IMAGE BANDE */
+.img-band{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:300px;overflow:hidden}
+.img-band img{width:100%;height:100%;object-fit:cover;filter:brightness(0.88)}
+.img-band img:hover{filter:brightness(1);transition:filter .3s}
+
+/* MISE EN RELATION */
+.connect-wrap{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:center;margin-top:52px}
+.connect-card{background:#fff;border:1px solid var(--bdr);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
+.connect-card.featured{border-color:var(--elec);box-shadow:0 4px 24px rgba(37,99,235,0.12)}
+.connect-icon{font-size:38px;margin-bottom:18px}
+.connect-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px;color:var(--navy)}
+.connect-desc{font-size:13.5px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:22px}
+.connect-items{display:flex;flex-direction:column;gap:11px}
+.connect-item{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text)}
+.connect-item::before{content:'✓';color:var(--mint);font-weight:700;flex-shrink:0}
+.connect-arrow{text-align:center;font-size:30px;color:var(--blue);opacity:.4}
+
+/* IMAGE RECRUTEMENT */
+.img-recruit{width:100%;border-radius:20px;object-fit:cover;height:360px;box-shadow:var(--shadow-lg);display:block}
+
+/* HOWTO */
+.howto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.howto-step{background:#fff;border:1.5px solid var(--bdr);border-radius:16px;padding:30px 26px;text-align:center;box-shadow:var(--shadow)}
+.step-num{width:46px;height:46px;border-radius:50%;background:var(--bg2);border:1.5px solid var(--bdr2);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:var(--blue)}
+.step-ico{font-size:28px;margin-bottom:14px}
+.step-t{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:10px;color:var(--navy)}
+.step-d{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* PRICING */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:740px;margin:52px auto 0}
+.plan{background:#fff;border:1.5px solid var(--bdr);border-radius:18px;padding:34px;position:relative;box-shadow:var(--shadow)}
+.plan.featured{border-color:var(--elec);box-shadow:0 4px 28px rgba(37,99,235,0.14)}
+.plan-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad);color:#fff;font-size:11px;font-weight:600;padding:4px 16px;border-radius:99px;white-space:nowrap;font-family:'Syne',sans-serif}
+.plan-name{font-size:12px;font-weight:600;color:var(--light);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.plan-price{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;letter-spacing:-2px;color:var(--navy);line-height:1}
+.plan-price span{font-size:15px;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300;letter-spacing:0}
+.plan-sep{height:1px;background:var(--bdr);margin:22px 0}
+.plan-feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13.5px;color:var(--text)}
+.plan-feature::before{content:'✓';color:var(--mint);font-weight:700;flex-shrink:0}
+.plan-feature.off{color:var(--light)}
+.plan-feature.off::before{content:'—';color:var(--light)}
+.plan-btn{width:100%;margin-top:22px;padding:14px;border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity .2s}
+.plan-btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--bdr2)}
+.plan-btn.solid{background:var(--grad);color:#fff;border:none;box-shadow:0 4px 14px rgba(37,99,235,0.25)}
+.plan-btn:hover{opacity:.85}
+
+/* ANALYSEUR */
+#analyzer{padding:90px 56px;max-width:860px;margin:0 auto}
+.analyzer-box{background:#fff;border:1.5px solid var(--bdr2);border-radius:24px;padding:52px;position:relative;box-shadow:var(--shadow-lg)}
+.analyzer-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad2);border-radius:24px 24px 0 0}
+.analyzer-box h3{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:10px;color:var(--navy)}
+.analyzer-box h3 em{font-style:normal;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.analyzer-box p{font-size:14px;color:var(--muted);margin-bottom:28px;font-weight:300;line-height:1.6}
+#cv-input{width:100%;min-height:180px;background:var(--bg);border:1.5px solid var(--bdr2);border-radius:12px;padding:18px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.6;resize:vertical;outline:none;transition:border-color .2s}
+#cv-input:focus{border-color:var(--elec)}
+#cv-input::placeholder{color:var(--light)}
+#analyze-btn{margin-top:14px;width:100%;padding:16px;border-radius:12px;background:var(--grad);color:#fff;border:none;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:opacity .2s,transform .15s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 16px rgba(37,99,235,0.28)}
+#analyze-btn:hover:not(:disabled){opacity:.88;transform:translateY(-1px)}
+#analyze-btn:disabled{opacity:.5;cursor:not-allowed}
+.loader{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#results{display:none;margin-top:36px}
+.score-wrap{text-align:center;margin-bottom:32px}
+.score-circle{width:130px;height:130px;border-radius:50%;margin:0 auto 14px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px solid var(--elec);background:var(--bg2)}
+.score-num{font-family:'Syne',sans-serif;font-size:46px;font-weight:800;letter-spacing:-2px;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.score-label{font-size:10px;color:var(--muted);margin-top:-4px}
+.score-niveau{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy)}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.res-card{background:var(--bg);border:1px solid var(--bdr);border-radius:14px;padding:22px}
+.res-card-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px}
+.res-card-title.green{color:var(--mint)}.res-card-title.red{color:#DC2626}.res-card-title.blue{color:var(--blue)}.res-card-title.amber{color:var(--amber)}
+.res-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:13px;color:var(--text);line-height:1.5}
+.res-item:last-child{margin-bottom:0}
+.res-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
+.res-dot.green{background:var(--mint)}.res-dot.red{background:#DC2626}.res-dot.blue{background:var(--blue)}.res-dot.amber{background:var(--amber)}
+.metiers-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.metier-tag{background:var(--bg2);border:1px solid var(--bdr2);border-radius:99px;padding:5px 14px;font-size:12px;color:var(--blue);font-weight:500}
+.error-msg{color:#DC2626;font-size:13px;margin-top:12px;text-align:center;display:none;background:#FEF2F2;padding:12px;border-radius:8px}
+
+/* CTA */
+.cta-wrap{padding:0 56px 100px}
+.cta-box{max-width:740px;margin:0 auto;background:var(--navy);border-radius:24px;padding:64px 52px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&q=80') center/cover;opacity:.08}
+.cta-box h3{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,34px);font-weight:800;letter-spacing:-1px;margin-bottom:12px;color:#fff;position:relative}
+.cta-box h3 em{font-style:normal;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cta-box p{font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:32px;position:relative;font-weight:300}
+.btn-primary-light{background:#fff;color:var(--navy);border:none;padding:14px 28px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;transition:transform .15s,opacity .2s;margin:0 auto}
+.btn-primary-light:hover{transform:translateY(-2px);opacity:.92}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:28px 56px;display:flex;align-items:center;justify-content:space-between}
+.foot-copy{font-size:12px}
+.foot-links{display:flex;gap:24px}
+.foot-links a{font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:#fff}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">
+    <div class="logo-mark">CV</div>
+    <span class="logo-name">CV<span>AI</span></span>
+  </a>
+  <ul>
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#connect">Recruteurs</a></li>
+    <li><a href="#pricing">Tarifs</a></li>
+    <li><a href="#analyzer">Tester</a></li>
+  </ul>
+  <button class="nav-cta">Commencer gratuitement</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content fade-up">
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>Propulsé par l'IA · Spécialisé data</span>
+    </div>
+    <h1>Ton CV optimisé par l'IA<br>pour <em>décrocher ton job data</em></h1>
+    <p class="hero-sub">Analyse ATS intelligente, score d'employabilité personnalisé, matching d'offres et mise en relation directe avec des recruteurs data.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('analyzer').scrollIntoView({behavior:'smooth'})">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Analyser mon CV
+      </button>
+      <button class="btn-ghost" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Voir les fonctionnalités</button>
+    </div>
+    <p class="hero-note">Projet étudiant · <strong>ESTIAM Paris</strong> · Mastère Big Data & IA · 2026</p>
+  </div>
+  <div class="hero-img fade-up">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=85" alt="Entretien professionnel data">
+    <div class="hero-img-badge">
+      <div class="hib-icon">🧠</div>
+      <div class="hib-text">
+        <div class="t">Analyse IA instantanée</div>
+        <div class="s">Score ATS · Matching · Recommandations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- STATS MARCHÉ -->
+<section class="section">
+  <div class="sec-label">Pourquoi CVAI existe</div>
+  <h2>Le marché data a un <em>problème de filtrage</em></h2>
+  <p class="sec-sub">Des chiffres qui expliquent pourquoi des candidats qualifiés n'arrivent jamais jusqu'au recruteur.</p>
+  <div class="market-grid fade-up">
+    <div class="market-card">
+      <div class="market-num">75%</div>
+      <div class="market-label">des CV éliminés par les ATS</div>
+      <div class="market-desc">Avant même qu'un recruteur humain les lise, quelle que soit la qualité réelle du candidat.</div>
+      <div class="market-src">Source : SHRM — Society for Human Resource Management, 2023</div>
+    </div>
+    <div class="market-card">
+      <div class="market-num">85 000</div>
+      <div class="market-label">postes data non pourvus en France</div>
+      <div class="market-desc">Pas par manque de candidats, mais parce qu'ils ne passent pas les filtres automatiques.</div>
+      <div class="market-src">Source : France Digitale, rapport annuel 2024</div>
+    </div>
+    <div class="market-card">
+      <div class="market-num">98%</div>
+      <div class="market-label">des grandes entreprises utilisent un ATS</div>
+      <div class="market-desc">Maîtriser les codes ATS est devenu la condition minimale pour être visible des recruteurs.</div>
+      <div class="market-src">Source : Jobscan, 2023</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BANDE D'IMAGES -->
+<div class="img-band">
+  <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Équipe data au travail">
+  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt="Réunion recrutement">
+  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" alt="Entretien professionnel">
+</div>
+
+<div class="divider"></div>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="sec-label">Fonctionnalités</div>
+  <h2>Tout ce dont tu as besoin<br><em>pour réussir dans la data</em></h2>
+  <p class="sec-sub">Une plateforme qui combine analyse IA, mise en relation et suivi de candidatures.</p>
+  <div class="feats-grid fade-up">
+    <div class="feat"><div class="feat-ico">🧠</div><div class="feat-t">CV IA intelligent</div><div class="feat-d">Analyse et restructure ton CV avec des suggestions ATS contextuelles basées sur les offres data réelles.</div></div>
+    <div class="feat"><div class="feat-ico">📊</div><div class="feat-t">Score d'employabilité</div><div class="feat-d">Un score personnalisé basé sur la compatibilité ATS et les tendances du marché data & IA.</div></div>
+    <div class="feat"><div class="feat-ico">🎯</div><div class="feat-t">Matching d'offres</div><div class="feat-d">Offres recommandées selon ton profil, tes compétences et tes objectifs de carrière.</div></div>
+    <div class="feat"><div class="feat-ico">✉️</div><div class="feat-t">Lettre de motivation</div><div class="feat-d">Génère une lettre personnalisée pour chaque offre en 1 clic, adaptée au poste et à l'entreprise.</div></div>
+    <div class="feat"><div class="feat-ico">🤝</div><div class="feat-t">Mise en relation</div><div class="feat-d">Connecte candidats et recruteurs data directement — sans intermédiaire, sans frais cachés.</div></div>
+    <div class="feat"><div class="feat-ico">📈</div><div class="feat-t">Suivi de candidatures</div><div class="feat-d">Pipeline Kanban pour gérer et suivre toutes tes candidatures en un seul endroit.</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- IMAGE RECRUTEMENT -->
+<div style="padding:0 56px;max-width:1100px;margin:0 auto">
+  <img class="img-recruit fade-up" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=85" alt="Recruteurs et candidats data">
+</div>
+
+<div style="height:80px"></div>
+<div class="divider"></div>
+
+<!-- MISE EN RELATION -->
+<section class="section" id="connect">
+  <div class="sec-label">Mise en relation</div>
+  <h2>Candidats et recruteurs,<br><em>enfin connectés</em></h2>
+  <p class="sec-sub">CVAI fonctionne dans les deux sens — pour trouver un job comme pour trouver le bon profil.</p>
+  <div class="connect-wrap fade-up">
+    <div class="connect-card featured">
+      <div class="connect-icon">👤</div>
+      <div class="connect-title">Tu cherches un poste data</div>
+      <div class="connect-desc">Optimise ton CV, obtiens ton score ATS, et rends-toi visible auprès des recruteurs qui cherchent exactement ton profil.</div>
+      <div class="connect-items">
+        <div class="connect-item">Score ATS et recommandations personnalisées</div>
+        <div class="connect-item">Matching automatique avec les offres data</div>
+        <div class="connect-item">Profil visible par les recruteurs partenaires</div>
+        <div class="connect-item">Lettre de motivation générée en 1 clic</div>
+      </div>
+    </div>
+    <div class="connect-arrow">⇄</div>
+    <div class="connect-card">
+      <div class="connect-icon">🏢</div>
+      <div class="connect-title">Tu recrutes des profils data</div>
+      <div class="connect-desc">Accède à une base de profils data pré-qualifiés par notre IA — filtrés, scorés, et prêts à être contactés.</div>
+      <div class="connect-items">
+        <div class="connect-item">Profils déjà scorés et vérifiés par l'IA</div>
+        <div class="connect-item">Filtres par compétences, niveau, localisation</div>
+        <div class="connect-item">Contact direct sans intermédiaire</div>
+        <div class="connect-item">Intégration simple dans votre workflow RH</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="section">
+  <div class="sec-label">Comment ça marche</div>
+  <h2>3 étapes pour <em>optimiser ton profil</em></h2>
+  <p class="sec-sub">Simple, rapide, conçu spécifiquement pour les métiers data.</p>
+  <div class="howto-grid fade-up">
+    <div class="howto-step">
+      <div class="step-num">01</div>
+      <div class="step-ico">📄</div>
+      <div class="step-t">Colle ton CV</div>
+      <div class="step-d">Copie le texte de ton CV dans l'analyseur. Notre IA lit la structure, les mots-clés et la compatibilité ATS.</div>
+    </div>
+    <div class="howto-step">
+      <div class="step-num">02</div>
+      <div class="step-ico">🧠</div>
+      <div class="step-t">Reçois ton analyse</div>
+      <div class="step-d">Score sur 100, points forts, points faibles, recommandations concrètes et métiers data compatibles.</div>
+    </div>
+    <div class="howto-step">
+      <div class="step-num">03</div>
+      <div class="step-ico">🚀</div>
+      <div class="step-t">Postule ou sois trouvé</div>
+      <div class="step-d">Génère ta lettre de motivation, suis tes candidatures et rends ton profil visible aux recruteurs data.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="sec-label">Tarifs</div>
+  <h2>Simple et <em>transparent</em></h2>
+  <p class="sec-sub">Commence gratuitement. Passe au Premium quand tu veux aller plus loin.</p>
+  <div class="plans fade-up">
+    <div class="plan">
+      <div class="plan-name">Gratuit</div>
+      <div class="plan-price">0 <span>CHF / mois</span></div>
+      <div class="plan-sep"></div>
+      <div class="plan-feature">1 analyse CV par mois</div>
+      <div class="plan-feature">Score ATS basique</div>
+      <div class="plan-feature">3 offres matchées / mois</div>
+      <div class="plan-feature off">Mise en relation recruteurs</div>
+      <div class="plan-feature off">Génération lettre de motivation</div>
+      <div class="plan-feature off">Suivi Kanban candidatures</div>
+      <button class="plan-btn ghost">Commencer</button>
+    </div>
+    <div class="plan featured">
+      <div class="plan-badge">⭐ Recommandé</div>
+      <div class="plan-name">Premium</div>
+      <div class="plan-price">9,90 <span>CHF / mois</span></div>
+      <div class="plan-sep"></div>
+      <div class="plan-feature">Analyses CV illimitées</div>
+      <div class="plan-feature">Score ATS détaillé + recommandations</div>
+      <div class="plan-feature">Matching offres illimité</div>
+      <div class="plan-feature">Mise en relation recruteurs data</div>
+      <div class="plan-feature">Lettre de motivation en 1 clic</div>
+      <div class="plan-feature">Suivi Kanban + analytics</div>
+      <button class="plan-btn solid">Essayer Premium</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ANALYSEUR CV IA -->
+<section id="analyzer">
+  <div style="padding:90px 56px;max-width:860px;margin:0 auto">
+    <div class="analyzer-box fade-up">
+      <div class="sec-label" style="text-align:left;margin-bottom:14px">Démo live · Gratuit</div>
+      <h3>Analyse ton CV <em>maintenant</em></h3>
+      <p>Colle le texte brut de ton CV ci-dessous. Notre IA te retourne un vrai score ATS avec des recommandations concrètes pour les métiers data — en quelques secondes.</p>
+      <textarea id="cv-input" placeholder="Colle ici le texte de ton CV...&#10;&#10;Exemple : Data Analyst, 2 ans d'expérience. Compétences : SQL, Python, Power BI. Formation : Master Data Science ESTIAM 2024..."></textarea>
+      <button id="analyze-btn" onclick="analyzeCV()">
+        <span id="btn-text">🧠 Analyser mon CV</span>
+        <div class="loader" id="loader"></div>
+      </button>
+      <div class="error-msg" id="error-msg"></div>
+      <div id="results">
+        <div class="score-wrap">
+          <div class="score-circle" id="score-circle">
+            <div class="score-num" id="score-num">—</div>
+            <div class="score-label">/ 100</div>
+          </div>
+          <div class="score-niveau" id="score-niveau"></div>
+        </div>
+        <div class="results-grid">
+          <div class="res-card"><div class="res-card-title green">✓ Points forts</div><div id="points-forts"></div></div>
+          <div class="res-card"><div class="res-card-title red">✗ Points faibles</div><div id="points-faibles"></div></div>
+        </div>
+        <div class="res-card" style="margin-bottom:14px"><div class="res-card-title blue">→ Recommandations ATS</div><div id="recommandations"></div></div>
+        <div class="res-card"><div class="res-card-title amber">🎯 Métiers data compatibles</div><div class="metiers-row" id="metiers"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<div class="cta-wrap" style="padding-top:80px">
+  <div class="cta-box fade-up">
+    <h3><em>Rejoins-nous</em> dès maintenant</h3>
+    <p>CVAI est un projet en développement actif. Sois parmi les premiers à tester la plateforme complète.</p>
+    <button class="btn-primary-light">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      Rejoindre la liste d'attente
+    </button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-copy">© 2026 CVAI · Projet étudiant ESTIAM Paris · Mastère Big Data & IA</div>
+  <div class="foot-links">
+    <a href="#">Confidentialité</a>
+    <a href="#">CGU</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<script>
+const BACKEND_URL = "https://cvai-backend-wjbi.onrender.com";
+
+async function analyzeCV() {
+  const cv = document.getElementById('cv-input').value.trim();
+  const btn = document.getElementById('analyze-btn');
+  const loader = document.getElementById('loader');
+  const btnText = document.getElementById('btn-text');
+  const errorMsg = document.getElementById('error-msg');
+  const results = document.getElementById('results');
+
+  if (cv.length < 50) {
+    showError("Colle au moins quelques lignes de ton CV pour que l'analyse soit pertinente.");
+    return;
+  }
+  btn.disabled = true;
+  loader.style.display = 'block';
+  btnText.textContent = 'Analyse en cours...';
+  errorMsg.style.display = 'none';
+  results.style.display = 'none';
+
+  try {
+    const res = await fetch(`${BACKEND_URL}/analyze`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cv })
+    });
+    if (!res.ok) { const e = await res.json(); throw new Error(e.error || 'Erreur serveur'); }
+    const data = await res.json();
+    displayResults(data);
+  } catch (err) {
+    showError("Erreur : " + err.message + " — Si c'est la première requête, le serveur se réveille (30 sec), réessaie.");
+  } finally {
+    btn.disabled = false;
+    loader.style.display = 'none';
+    btnText.textContent = '🧠 Analyser mon CV';
+  }
+}
+
+function displayResults(data) {
+  document.getElementById('score-num').textContent = data.score;
+  document.getElementById('score-niveau').textContent = data.niveau;
+  const color = data.score >= 75 ? '#059669' : data.score >= 50 ? '#D97706' : '#DC2626';
+  document.getElementById('score-circle').style.borderColor = color;
+  document.getElementById('points-forts').innerHTML = data.points_forts.map(p => `<div class="res-item"><div class="res-dot green"></div>${p}</div>`).join('');
+  document.getElementById('points-faibles').innerHTML = data.points_faibles.map(p => `<div class="res-item"><div class="res-dot red"></div>${p}</div>`).join('');
+  document.getElementById('recommandations').innerHTML = data.recommandations.map(r => `<div class="res-item"><div class="res-dot blue"></div>${r}</div>`).join('');
+  document.getElementById('metiers').innerHTML = data.metiers_compatibles.map(m => `<div class="metier-tag">${m}</div>`).join('');
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+const els = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target) } })
+}, { threshold: 0.08 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
